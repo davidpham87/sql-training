@@ -1,0 +1,96 @@
+{:paths ["src"]
+
+ :deps
+ {camel-snake-kebab/camel-snake-kebab {:mvn/version "0.4.2"}
+  com.andrewmcveigh/cljs-time         {:mvn/version "0.5.2"}
+  com.cognitect/transit-clj           {:mvn/version "1.0.329"}
+  com.cognitect/transit-cljs          {:mvn/version "LATEST"}
+  datascript/datascript               {:mvn/version "1.3.12"}
+  djblue/portal                       {:mvn/version "0.23.0"}
+  funcool/cuerdas                     {:mvn/version "2022.03.27-397"}
+  http-kit/http-kit                   {:mvn/version "2.5.3"}
+  integrant/integrant                 {:mvn/version "0.8.0"}
+  integrant/repl                      {:mvn/version "0.3.2"}
+  metosin/jsonista                    {:mvn/version "0.3.5"}
+  metosin/malli                       {:mvn/version "0.8.4"}
+  metosin/reitit                      {:mvn/version "0.5.18"}
+  org.clojure/core.async              {:mvn/version "1.5.648"}
+  org.clojure/data.generators         {:mvn/version "1.0.0"}
+  org.clojure/data.json               {:mvn/version "2.4.0"}
+  org.clojure/tools.logging           {:mvn/version "1.2.4"}
+  org.clojure/test.check              {:mvn/version "1.1.1"}
+  testdouble/clojurescript.csv        {:mvn/version "0.5.1"}}
+
+ :aliases
+ {:repl
+  {:extra-deps {cider/cider-nrepl             {:mvn/version "0.28.3"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "3.5.2"}
+                nrepl/nrepl                   {:mvn/version "0.9.0"}
+                thheller/shadow-cljs          {:mvn/version "2.18.0"}}
+   :main-opts  ["-m" "shadow.cljs.devtools.cli" "clj-repl"]}
+
+  :data-science
+  {:extra-deps
+   {clj-python/libpython-clj   {:mvn/version "2.018"}
+    techascent/tech.datatype   {:mvn/version "5.18"}
+    techascent/tech.ml.dataset {:mvn/version "6.084"}
+    uncomplicate/neanderthal   {:mvn/version "0.43.3"}}}
+
+  :db
+  {:extra-deps
+   {io.replikativ/datahike           {:mvn/version "0.5.1495"}
+    org.xerial/sqlite-jdbc           {:mvn/version "3.36.0.3"}
+    com.github.seancorfield/honeysql {:mvn/version "2.2.868"}
+    seancorfield/next.jdbc           {:mvn/version "1.2.659" :exclusions [org.clojure/clojure]}}}
+
+  :kafka
+  {:extra-deps
+   {fundingcircle/jackdaw                          {:mvn/version "0.9.3"}
+    com.appsflyer/ketu                             {:mvn/version "0.6.0"}
+    io.confluent/kafka-schema-registry-client      {:mvn/version "6.0.0"}
+    org.apache.kafka/kafka_2.13                    {:mvn/version "3.1.0"}
+    org.apache.kafka/kafka-clients                 {:mvn/version "3.1.0"}
+    org.apache.kafka/kafka-streams                 {:mvn/version "3.1.0"}
+    org.apache.zookeeper/zookeeper                 {:mvn/version "3.8.0" :exclusions [org.slf4j/slf4j-log4j12]}
+    org.apache.kafka/kafka-streams-test-utils      {:mvn/version "3.1.0"}
+    org.slf4j/slf4j-api                            {:mvn/version "1.7.36"}
+    org.slf4j/slf4j-simple                         {:mvn/version "1.7.36"}
+    com.fasterxml.jackson.core/jackson-annotations {:mvn/version "2.13.2"}}}
+
+  :web-backend
+  {:extra-deps
+   {buddy/buddy-auth                   {:mvn/version "3.0.323"}
+    buddy/buddy-hashers                {:mvn/version "1.8.158"}
+    buddy/buddy-sign                   {:mvn/version "3.4.333"}
+    io.pedestal/pedestal.service       {:mvn/version "0.5.10"}
+    io.pedestal/pedestal.service-tools {:mvn/version "0.5.10"} ;; Only needed for ns-watching; WAR tooling
+    io.pedestal/pedestal.jetty         {:mvn/version "0.5.10"}
+    io.pedestal/pedestal.immutant      {:mvn/version "0.5.10"}
+    io.pedestal/pedestal.aws           {:mvn/version "0.5.10"} ;; API-Gateway, Lambda, and X-Ray support}
+    io.pedestal/pedestal.tomcat        {:mvn/version "0.5.10"}
+    io.pedestal/pedestal.log           {:mvn/version "0.5.10"} ;; Logging and runtime metrics
+    io.pedestal/pedestal.interceptor   {:mvn/version "0.5.10"} ;; The Interceptor chain and the Interceptor API
+    io.pedestal/pedestal.route         {:mvn/version "0.5.10"}
+    ring-cors/ring-cors                {:mvn/version "0.1.13"}}}
+
+  :web-frontend
+  {:extra-deps
+   {cljs-ajax/cljs-ajax         {:mvn/version "0.8.4"}
+    cljs-bean/cljs-bean         {:mvn/version "1.8.0"}
+    day8.re-frame/async-flow-fx {:mvn/version "0.3.0"}
+    day8.re-frame/http-fx       {:mvn/version "0.2.4"}
+    day8.re-frame/test          {:mvn/version "0.1.5"}
+    re-frame/re-frame           {:mvn/version "1.2.0" :exclusions [cljsjs/react cljsjs/react-dom]}
+    re-posh/re-posh             {:mvn/version "0.3.3"}
+    re-pressed/re-pressed       {:mvn/version "0.3.1"}
+    reagent/reagent             {:mvn/version "1.1.1" :exclusions [cljsjs/react cljsjs/react-dom]}
+    reagent-utils/reagent-utils {:mvn/version "0.3.4"}}}
+
+  :cljs
+  {:extra-deps
+   {binaryage/devtools         {:mvn/version "1.0.6"}
+    cider/cider-nrepl          {:mvn/version "0.28.3"}
+    cider/piggieback           {:mvn/version "0.5.3"}
+    day8.re-frame/re-frame-10x {:mvn/version "1.2.6" :exclusions [cljsjs/react cljsjs/react-dom]}
+    devcards/devcards          {:mvn/version "0.2.7"}}
+   :main-opts []}}}
